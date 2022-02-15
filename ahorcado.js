@@ -5,6 +5,8 @@ var bandera=0;
 var palabras;
 var numPalabras;
 
+//Colocar palabra o que sea una al azar
+
 function enviarTexto(){
   palabras=document.getElementById('veriPalabra').value;
   arrayPalabras=palabras.split('');
@@ -37,6 +39,8 @@ function enviarTexto(){
 var numCaja=letras.length;
 var cont=1;
 var intentos=7;
+
+// Verificar letra por letra
 
 function verificar(){
   var letra=document.getElementById('veri').value;
@@ -72,6 +76,8 @@ function verificar(){
 
 var listaPalabras = ['FELICIDAD','ALEGRIA','TRISTEZA','DOLOR','RABIA','ALERGIA'];
 
+// Cuando no se coloca una palabra se elige una al azar de la libreria
+
 function eligeUnapalabraAlAzar() {
     palabras = listaPalabras[Math.floor(Math.random() * listaPalabras.length)];
     numPalabras=palabras.length;
@@ -93,6 +99,8 @@ function eligeUnapalabraAlAzar() {
     }
 }
 
+//Validar en el input solo una letra y mayuscula
+
 function validar(e) {
   tecla = (document.all) ? e.keyCode : e.which;
   if (tecla == 8) {
@@ -103,6 +111,8 @@ function validar(e) {
   return patron.test(tecla_final);
 }
 
+//Validar en el input palabras solo en Mayuscula
+
 function validar1(e) {
   tecla = (document.all) ? e.keyCode : e.which;
   if (tecla == 8) {
@@ -112,6 +122,8 @@ function validar1(e) {
   tecla_final = String.fromCharCode(tecla);
   return patron.test(tecla_final);
 }
+
+//Dibujar el ahorcado al fallar en la comparacion de las letras
 
 function dibujarMuñeco(intentos){
   switch (intentos){
