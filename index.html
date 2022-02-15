@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego del Ahorcado</title>
+    
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body>
+    <h1> JUEGO DEL AHORCADO</h1>
+    <div>
+        <button type="button" id="btreiniciar" onclick="location.reload()" >INICIAR</button>
+    </div>
+    <div id="mensaje"><span id="resultado"></span>
+    </div>
+    <div id="container">
+        <p id="comenzar"><b>Ingresa una Palabra</b></p>
+        <input type="text" placeholder="Ingresa Palabra" id="veripalabra" size="10">
+        <button type="button" onclick="enviarTexto()" id="btpalabra">INGRESA</button>
+    </div>
+    <div id="container">
+        <p id="comenzar"><b>Escoge una Letra</b></p>
+        <input type="text" placeholder="Ingresa Letra" id="veri" size="1">
+        <button type="button" onclick="verificar()" id="btnveri">VERIFICAR</button>
+    </div>
+    <div><canvas id="ahorcado" height="180px" width="350px"></canvas>
+    </div>
+    <script type="text/javascript" src="canvas.js"></script>
+    <script type="text/javascript" src="ahorcado2.js"></script>
+</body>
+<footer>
+    <div id="footer-info">Copyright © 2022 - Diseño Web realizado por <a class="link" href="https://www.linkedin.com/in/edibertocoronel/" target="_blank" rel="nofollow, noopener" >Ediberto Coronel</a> &nbsp <a>Challeger Oracle Logica de Programacion  <a class="link" href="https://app.aluracursos.com/" target="_blank" rel="nofollow, noopener" title="Alura LATAM">Alura LATAM</a></a>
+    </div>
+</footer>
+
+</html>
