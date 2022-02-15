@@ -57,6 +57,7 @@ function verificar(){
   else {
     document.getElementById('veri').value='';
     intentos--;
+    document.getElementById('inputNum').value=intentos-1;
   }
 
   if((numCaja + numPalabras) == 0){
@@ -124,10 +125,9 @@ function verificar(){
       ctx1.lineTo(230, 140);
       ctx1.stroke();
 
-      alert('juego terminado= '+intentos);
-        for(i=0;i<numPalabras;i++){
+      for(i=0;i<numPalabras;i++){
           document.getElementById('d'+i).value=arrayP[i];
-        }
+      }
 
       document.getElementById('resultado').innerHTML = 'Perdiste estas Ahorcado';
       boton.disabled=true;
