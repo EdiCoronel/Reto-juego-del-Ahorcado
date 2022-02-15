@@ -45,7 +45,8 @@ button{
 #resultado{
     margin-bottom: 15px;
     color: red;
-    font-size: 3em;
+    font-size: 2em;
+    background-color: black;
 }
 
 
