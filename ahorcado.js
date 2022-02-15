@@ -39,6 +39,7 @@ var intentos=7;
 
 function verificar(){
   var letra=document.getElementById('veri').value;
+  document.getElementById('inputText').value=letra;
   for(i=0;i<letraO.length;i++){
     if(letra===letraO[i]){
       document.getElementById('d'+posLetraO[i]).value=letra;
