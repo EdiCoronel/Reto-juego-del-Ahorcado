@@ -6,10 +6,11 @@ var palabras;
 var numPalabras;
 
 function enviarTexto(){
-  palabras=document.getElementById('veripalabra').value;
+  palabras=document.getElementById('veriPalabra').value;
   arrayP=palabras.split('');
   numPalabras=palabras.length;
   console.log(arrayP);
+  document.getElementById('veriPalabra').value=''
 
   if (numPalabras == 0) {
     eligeUnapalabraAlAzar();
@@ -137,7 +138,7 @@ function verificar(){
   }
 }
 
-var listaPalabras = ['FELICIDAD','ALEGRIA','TRISTEZA','DOLOR','TERNURA','RABIA','ALERGIA'];
+var listaPalabras = ['FELICIDAD','ALEGRIA','TRISTEZA','DOLOR','RABIA','ALERGIA'];
 
 function eligeUnapalabraAlAzar() {
     palabras = listaPalabras[Math.floor(Math.random() * listaPalabras.length)];
@@ -158,4 +159,24 @@ function eligeUnapalabraAlAzar() {
         posLetraO[bandera] = i;
         bandera++;
     }
+}
+
+function validar(e) {
+  tecla = (document.all) ? e.keyCode : e.which;
+  if (tecla == 8) {
+      return true;
+  }
+  patron = /[A-Z]{1}/;
+  tecla_final = String.fromCharCode(tecla);
+  return patron.test(tecla_final);
+}
+
+function validar1(e) {
+  tecla = (document.all) ? e.keyCode : e.which;
+  if (tecla == 8) {
+      return true;
+  }
+  patron = /[A-Z]/g;
+  tecla_final = String.fromCharCode(tecla);
+  return patron.test(tecla_final);
 }

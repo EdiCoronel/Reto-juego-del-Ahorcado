@@ -16,12 +16,12 @@
     </div>
     <div id="container">
         <label id="comenzar"><b>Ingresa una Palabra</b></label>
-        <input type="text" placeholder="Ingresa Palabra" id="veripalabra" size="10">
+        <input type="text" placeholder="Ingresa Palabra" id="veriPalabra" maxlength="10" onkeypress="return validar1(event)" >
         <button type="button" onclick="enviarTexto()" id="btpalabra">INGRESA</button>
     </div>
     <div id="container">
         <label id="comenzar"><b>Escoge una Letra</b></label>
-        <input type="text" placeholder="Ingresa Letra" id="veri" size="1">
+        <input type="text" placeholder="Ingresa Letra" id="veri" maxlength="1" onkeypress="return validar(event)">
         <button type="button" onclick="verificar()" id="btnveri">VERIFICAR</button>
     </div>
     <div id="historia">
