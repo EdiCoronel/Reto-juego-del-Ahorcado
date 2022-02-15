@@ -1,15 +1,15 @@
 var boton=document.getElementById('btnveri');
-var letraO=[];
-var posLetraO=[];
+var letras=[];
+var posicion=[];
 var bandera=0;
 var palabras;
 var numPalabras;
 
 function enviarTexto(){
   palabras=document.getElementById('veriPalabra').value;
-  arrayP=palabras.split('');
+  arrayPalabras=palabras.split('');
   numPalabras=palabras.length;
-  console.log(arrayP);
+  console.log(arrayPalabras);
   document.getElementById('veriPalabra').value=''
 
   if (numPalabras == 0) {
@@ -27,23 +27,23 @@ function enviarTexto(){
     }
 
     for(i=0;i<numPalabras;i++){
-      letraO[bandera]=arrayP[i];
-      posLetraO[bandera]=i;
+      letras[bandera]=arrayPalabras[i];
+      posicion[bandera]=i;
       bandera++;
     }
   }
 }
 
-var numCaja=letraO.length;
+var numCaja=letras.length;
 var cont=1;
 var intentos=7;
 
 function verificar(){
   var letra=document.getElementById('veri').value;
   document.getElementById('inputText').value=letra;
-  for(i=0;i<letraO.length;i++){
-    if(letra===letraO[i]){
-      document.getElementById('d'+posLetraO[i]).value=letra;
+  for(i=0;i<letras.length;i++){
+    if(letra===letras[i]){
+      document.getElementById('d'+posicion[i]).value=letra;
       document.getElementById('veri').value='';
       cont++;
       numCaja--;
@@ -67,6 +67,53 @@ function verificar(){
     boton.disabled=true;
   }
 
+  dibujarMuñeco(intentos);
+}
+
+var listaPalabras = ['FELICIDAD','ALEGRIA','TRISTEZA','DOLOR','RABIA','ALERGIA'];
+
+function eligeUnapalabraAlAzar() {
+    palabras = listaPalabras[Math.floor(Math.random() * listaPalabras.length)];
+    numPalabras=palabras.length;
+    arrayPalabras= palabras.split("");
+    
+    for (i = 0; i < numPalabras; i++) {
+        var caja = document.createElement("input");
+        caja.setAttribute("type", "text");
+        caja.setAttribute("id", "d" + i);
+        caja.setAttribute("name", "d");
+        caja.setAttribute("size", "2");
+        document.body.appendChild(caja);
+    }
+
+    for (i = 0; i < numPalabras; i++) {
+        letras[bandera] = arrayPalabras[i];
+        posicion[bandera] = i;
+        bandera++;
+    }
+}
+
+function validar(e) {
+  tecla = (document.all) ? e.keyCode : e.which;
+  if (tecla == 8) {
+      return true;
+  }
+  patron = /[A-Z]{1}/;
+  tecla_final = String.fromCharCode(tecla);
+  return patron.test(tecla_final);
+}
+
+function validar1(e) {
+  tecla = (document.all) ? e.keyCode : e.which;
+  if (tecla == 8) {
+      return true;
+  }
+  patron = /[A-Z]/g;
+  tecla_final = String.fromCharCode(tecla);
+  return patron.test(tecla_final);
+}
+
+function dibujarMuñeco(intentos){
   switch (intentos){
     case 6:
       const canva6 = document.getElementById("ahorcado");
@@ -128,7 +175,7 @@ function verificar(){
       ctx1.stroke();
 
       for(i=0;i<numPalabras;i++){
-          document.getElementById('d'+i).value=arrayP[i];
+          document.getElementById('d'+i).value=arrayPalabras[i];
       }
 
       document.getElementById('resultado').innerHTML = 'Perdiste estas Ahorcado';
@@ -136,47 +183,4 @@ function verificar(){
       break;
 
   }
-}
-
-var listaPalabras = ['FELICIDAD','ALEGRIA','TRISTEZA','DOLOR','RABIA','ALERGIA'];
-
-function eligeUnapalabraAlAzar() {
-    palabras = listaPalabras[Math.floor(Math.random() * listaPalabras.length)];
-    numPalabras=palabras.length;
-    arrayP= palabras.split("");
-    
-    for (i = 0; i < numPalabras; i++) {
-        var caja = document.createElement("input");
-        caja.setAttribute("type", "text");
-        caja.setAttribute("id", "d" + i);
-        caja.setAttribute("name", "d");
-        caja.setAttribute("size", "2");
-        document.body.appendChild(caja);
-    }
-
-    for (i = 0; i < numPalabras; i++) {
-        letraO[bandera] = arrayP[i];
-        posLetraO[bandera] = i;
-        bandera++;
-    }
-}
-
-function validar(e) {
-  tecla = (document.all) ? e.keyCode : e.which;
-  if (tecla == 8) {
-      return true;
-  }
-  patron = /[A-Z]{1}/;
-  tecla_final = String.fromCharCode(tecla);
-  return patron.test(tecla_final);
-}
-
-function validar1(e) {
-  tecla = (document.all) ? e.keyCode : e.which;
-  if (tecla == 8) {
-      return true;
-  }
-  patron = /[A-Z]/g;
-  tecla_final = String.fromCharCode(tecla);
-  return patron.test(tecla_final);
 }
