@@ -72,3 +72,8 @@ p {
   border: 2px black solid;
   width: 50px;
 }
+
+#historia {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
